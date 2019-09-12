@@ -6,6 +6,6 @@ export default () => {
   const documentsHandler = DocumentsHandler({ documentsService });
 
   return {
-    store: documentsHandler.store,
+    create: documentsHandler.create,
   };
 };

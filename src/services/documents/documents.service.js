@@ -2,13 +2,12 @@ export default () => {
   const document = {};
 
   /* Store Documents */
-  document.store = (docID, users) => {
+  document.create = (docTypeID, users) => {
     /*
-    Send doc & users to end-point to request hash content
-    Store in DB the hash of the doc with the users involved
+    Create PDF & Sign it with the users
     */
     return {
-      doc_id: docID,
+      doc_type_id: docTypeID,
       users,
     };
   };

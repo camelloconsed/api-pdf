@@ -1,7 +1,7 @@
 export default ({ documentsService }) => {
   const document = {};
 
-  document.store = (docID, users) => documentsService.store(docID, users);
+  document.create = (docTypeID, users) => documentsService.create(docTypeID, users);
 
   return document;
 };
