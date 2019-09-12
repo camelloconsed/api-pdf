@@ -1,0 +1,8 @@
+# package directories
+node_modules
+
+# Babel output
+dist
+
+# Enviroment variables
+.env
