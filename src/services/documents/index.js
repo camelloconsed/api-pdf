@@ -7,5 +7,6 @@ export default () => {
 
   return {
     create: documentsHandler.create,
+    createAnnex: documentsHandler.createAnnex,
   };
 };
