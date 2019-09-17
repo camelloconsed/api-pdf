@@ -2,6 +2,7 @@ import Koa from 'koa';
 import bodyParser from 'koa-body';
 import json from 'koa-json';
 import KoaRouter from 'koa-router';
+import cors from '@koa/cors';
 import Documents from './services/documents';
 import Env from './config/enviroment';
 
@@ -16,8 +17,8 @@ const router = new KoaRouter({
 
 /* ----------Documents---------- */
 /* Create document */
-router.post('/documents', koaBody, async (ctx) => {
-  ctx.body = await documents.create(
+router.post('/documents', (ctx) => {
+  ctx.body = documents.create(
     ctx.request.body.docTypeID,
     ctx.request.body.users,
   );
@@ -32,6 +33,7 @@ router.post('/documents/annexes', koaBody, async (ctx) => {
 });
 
 app
+  .use(cors())
   .use(json())
   .use(bodyParser())
   .use(router.routes())
