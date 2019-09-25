@@ -1,8 +1,10 @@
 import pdf from 'html-pdf';
 import fs from 'fs';
+import Consts from '../../config/constants';
 
 export default () => {
   const document = {};
+  const CONSTS = Consts();
 
   /* Format HTML Function */
   function formatHTML(html, users) {
@@ -25,13 +27,13 @@ export default () => {
   /* Store Documents */
   document.create = (docTypeID, users) => {
     return new Promise((resolve, reject) => {
-      let html = fs.readFileSync(`src/templates/${docTypeID}.html`, 'utf8');
+      let html = fs.readFileSync(`src/templates/${docTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET);
       const options = {
         border: {
-          top: '1in',
-          right: '0.5in',
-          bottom: '1in',
-          left: '1in',
+          top: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.TOP,
+          right: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.RIGHT,
+          bottom: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.BOTTOM,
+          left: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.LEFT,
         },
       };
 
