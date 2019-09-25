@@ -17,10 +17,9 @@ const router = new KoaRouter({
 
 /* ----------Documents---------- */
 /* Create document */
-router.post('/documents', (ctx) => {
-  ctx.body = documents.create(
-    ctx.request.body.docTypeID,
-    ctx.request.body.users,
+router.post('/documents', async ctx => {
+  ctx.body = await documents.create(
+    ctx,
   );
 });
 
