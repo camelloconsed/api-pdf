@@ -1,0 +1,20 @@
+# This is a sample build configuration for Other.
+# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: node:8.16
+
+pipelines:
+  default:
+    - step:
+        name: lint
+        script: 
+        - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-react
+        - node_modules/.bin/eslint src
+    - step:
+        name: build
+        script:
+          - npm install babel-cli babel-preset-env babel-preset-stage-3
+          - rm -rf dist
+          - node_modules/.bin/babel src -d dist
