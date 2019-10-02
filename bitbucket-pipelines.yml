@@ -10,11 +10,11 @@ pipelines:
     - step:
         name: lint
         script: 
-        - npm install eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jest eslint-plugin-jsx-a11y eslint-plugin-react
+        - npm install
         - node_modules/.bin/eslint src
     - step:
         name: build
         script:
-          - npm install babel-cli babel-preset-env babel-preset-stage-3
+          - npm install
           - rm -rf dist
           - node_modules/.bin/babel src -d dist
