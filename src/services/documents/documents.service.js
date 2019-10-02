@@ -41,7 +41,11 @@ export default () => {
 
       pdf.create(html, options).toBuffer((err, buffer) => {
         if (!err) {
-          resolve(buffer);
+          const response = {
+            buffer,
+            html,
+          };
+          resolve(response);
         } else {
           reject(err);
         }
