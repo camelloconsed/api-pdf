@@ -25,9 +25,9 @@ export default () => {
   }
 
   /* Store Documents */
-  document.create = (docTypeID, users) => {
+  document.create = (params) => {
     return new Promise((resolve, reject) => {
-      let html = fs.readFileSync(`src/templates/${docTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET);
+      let html = fs.readFileSync(`src/templates/${params.docTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET);
       const options = {
         border: {
           top: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.TOP,
@@ -37,7 +37,7 @@ export default () => {
         },
       };
 
-      html = formatHTML(html, users);
+      html = formatHTML(html, params.users);
 
       pdf.create(html, options).toBuffer((err, buffer) => {
         if (!err) {

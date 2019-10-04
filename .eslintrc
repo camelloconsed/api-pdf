@@ -15,7 +15,8 @@
       "global-require": "off",
       "no-param-reassign": ["error", { "props": false }],
       "new-cap": "off",
-      "arrow-parens": "off"
+      "arrow-parens": "off",
+      "max-classes-per-file": "off"
     },
     "env": {
       "jest/globals": true
