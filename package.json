@@ -30,7 +30,7 @@
     "eslint-plugin-jest": "^22.17.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
-    "fastest-validator": "^0.6.17",
+    "fastest-validator": "^0.6.18",
     "html-pdf": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.8.1",

@@ -1,12 +1,17 @@
+import validator from '../../validator';
+import storeSchema from '../../schemes/documents/store';
+
 export default ({ documentsService }) => {
   const document = {};
 
-  document.create = (ctx) => {
-    ctx.res.setHeader('Content-Type', 'application/pdf');
-    ctx.res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
-
-    return documentsService.create(ctx.request.body.docTypeID, ctx.request.body.users);
-  };
+  document.create = (ctx) => validator(
+    storeSchema,
+    {
+      docTypeID: ctx.request.body.docTypeID,
+      users: ctx.request.body.users,
+    },
+    documentsService.create,
+  );
 
   document.createAnnex = (docTypeID, users) => {
     return documentsService.createAnnex(docTypeID, users);
