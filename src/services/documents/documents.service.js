@@ -1,6 +1,7 @@
 import pdf from 'html-pdf';
 import fs from 'fs';
 import Consts from '../../config/constants';
+import Response from '../../responses';
 
 export default () => {
   const document = {};
@@ -45,15 +46,12 @@ export default () => {
             buffer,
             html,
           };
-          resolve(response);
+          resolve(new Response('Document stored successfully.', 200, response));
         } else {
           reject(err);
         }
       });
     });
-    /*
-    Create PDF & Sign it with the users
-    */
   };
 
   /* Create Annex */
