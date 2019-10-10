@@ -7,7 +7,7 @@ API de microservicios para generar documentos en formato PDF.
 Clonar repositorio de git y cambiar a la rama que se usará.
 
 ```
-git clone https://ntorrres@bitbucket.org/jumpitt_blockchain/api_piloto.git
+git clone https://ntorrres@bitbucket.org/jumpitt_blockchain/pdf.git
 git checkout "rama"
 ```
 
@@ -17,7 +17,6 @@ Necesitas instalar las siguientes cosas en tu maquina para ejecutar la API:
 
 ```
 Node JS
-npx
 ```
 
 ### Instalación
