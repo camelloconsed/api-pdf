@@ -17,6 +17,18 @@ export default () => {
         },
       },
     },
+    HTTP: {
+      CODES: {
+        OK: 200,
+      },
+    },
+    RESPONSES: {
+      DOCUMENTS: {
+        STORE: {
+          CREATE: 'Document created successfully.',
+        },
+      },
+    },
   };
 
   return CONSTS;

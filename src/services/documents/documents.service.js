@@ -25,7 +25,7 @@ export default () => {
     return response;
   }
 
-  /* Store Documents */
+  /* Create Documents */
   document.create = (params) => {
     return new Promise((resolve, reject) => {
       let html = fs.readFileSync(`src/templates/${params.docTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET);
@@ -46,7 +46,11 @@ export default () => {
             buffer,
             html,
           };
-          resolve(new Response('Document stored successfully.', 200, response));
+          resolve(new Response(
+            CONSTS.RESPONSES.DOCUMENTS.STORE.CREATE,
+            CONSTS.HTTP.CODES.OK,
+            response,
+          ));
         } else {
           reject(err);
         }
