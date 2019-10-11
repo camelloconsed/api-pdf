@@ -1,6 +1,7 @@
 import pdf from 'html-pdf';
 import fs from 'fs';
 import Consts from '../../config/constants';
+import Response from '../../responses';
 
 export default () => {
   const document = {};
@@ -24,7 +25,7 @@ export default () => {
     return response;
   }
 
-  /* Store Documents */
+  /* Create Documents */
   document.create = (params) => {
     return new Promise((resolve, reject) => {
       let html = fs.readFileSync(`src/templates/${params.docTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET);
@@ -45,15 +46,16 @@ export default () => {
             buffer,
             html,
           };
-          resolve(response);
+          resolve(new Response(
+            CONSTS.RESPONSES.DOCUMENTS.STORE.CREATE,
+            CONSTS.HTTP.CODES.OK,
+            response,
+          ));
         } else {
           reject(err);
         }
       });
     });
-    /*
-    Create PDF & Sign it with the users
-    */
   };
 
   /* Create Annex */
