@@ -13,6 +13,7 @@ export default () => {
           name: process.env.API_NAME,
           env: process.env.API_ENV,
           version: process.env.API_VERSION,
+          sentry: process.env.SENTRY,
         },
       };
       break;
@@ -22,6 +23,7 @@ export default () => {
           name: process.env.API_NAME,
           env: process.env.API_ENV,
           version: process.env.API_VERSION,
+          sentry: process.env.SENTRY,
         },
       };
       break;
@@ -31,6 +33,7 @@ export default () => {
           name: process.env.API_NAME,
           env: process.env.API_ENV,
           version: process.env.API_VERSION,
+          sentry: process.env.SENTRY,
         },
       };
       break;
