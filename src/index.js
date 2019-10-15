@@ -5,15 +5,21 @@ import KoaRouter from 'koa-router';
 import cors from '@koa/cors';
 import Documents from './services/documents';
 import Env from './config/enviroment';
+import Consts from './config/constants';
+
+const Sentry = require('@sentry/node');
 
 const koaBody = require('koa-body')({ multipart: true });
 
+const CONSTS = Consts();
 const app = new Koa();
 const documents = Documents();
 const env = Env();
 const router = new KoaRouter({
   prefix: `/v${env.api.version}`,
 });
+
+Sentry.init({ dsn: env.api.sentry });
 
 /* ----------Documents---------- */
 /* Create document */
