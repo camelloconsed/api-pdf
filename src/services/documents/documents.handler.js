@@ -13,9 +13,5 @@ export default ({ documentsService }) => {
     documentsService.create,
   );
 
-  document.createAnnex = (docTypeID, users) => {
-    return documentsService.createAnnex(docTypeID, users);
-  };
-
   return document;
 };

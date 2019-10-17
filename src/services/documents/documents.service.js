@@ -47,26 +47,19 @@ export default () => {
             html,
           };
           resolve(new Response(
-            CONSTS.RESPONSES.DOCUMENTS.STORE.CREATE,
+            CONSTS.RESPONSES.DOCUMENTS.CREATE.SUCCESS,
             CONSTS.HTTP.CODES.OK,
             response,
           ));
         } else {
-          reject(err);
+          reject(new Response(
+            CONSTS.RESPONSES.DOCUMENTS.CREATE.ERROR,
+            CONSTS.HTTP.CODES.INTERNAL_SERVER_ERROR,
+            err,
+          ));
         }
       });
     });
-  };
-
-  /* Create Annex */
-  document.createAnnex = (docTypeID, users) => {
-    /*
-    Create PDF & Sign it with the users
-    */
-    return {
-      doc_type_id: docTypeID,
-      users,
-    };
   };
 
   return document;

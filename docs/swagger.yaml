@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: PDF
+  description: This is the API documentation for the PDF entity
+  version: '1.0.0'
+
+servers:
+  - url: https://PROD/v1/
+    description: Production environment
+  - url: https://STAGE/v1/
+    description: Stage environement
+  - url: https://DEV/v1
+    description: Development environment
+
+security:
+  - BearerAuth: []
+
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        payload:
+          type: object
+
+paths:
+  /documents:
+    post:
+      summary: Create document
+      description: Returns an object of the document binary data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                docTypeID:
+                  type: string
+                  format: uuid
+                users:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      RUT:
+                        type: string
+                        format: RUT
+            example:
+              docTypeID: d9fbdfb8-2611-4e07-b926-16a26e4a5762
+              users: [
+                {
+                  name: Nicolas Torres,
+                  RUT: 19.016.157-9
+                },
+                {
+                  name: Italo Carrasco,
+                  RUT: 18.201.669-1
+                }
+              ]
+      responses:
+        '200':
+          description: The object of the document binary data within the payload of the response object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              example:
+                code: 200
+                message: Document created successfully.
+                payload: {
+                  buffer: {
+                    type: "Buffer",
+                    data: [37,80,68,70,45,49,46,52,10,49,32,48]
+                  },
+                  html: "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">\n<html lan=\"es\">\n\n<head>\n  <meta http-equiv=\"Content-Type\" content=\"text/html;\" charset=\"UTF-8\">\n  <style type=\"text/css\">\n      body {\n          font-size: 12px;\n          font-family: sans-serif;\n      }\n  </style>\n</head>\n\n<body>\n  <div id=\"pageHeader\">\n    <table style=\"width:100%;\">\n      <td style=\"text-align: center;\">\n        <h2>Contrato de prueba</h2>\n      </td>\n      <td>\n        <img width=\"60px\"\n          src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbZ9u-Ysw99s4gJD8-tBho6Ld1ntznmS3R2ZYKh0Z4wbex5Dm06A\"\n          style=\"float:right;\">\n      </td>\n    </table>\n  </div>\n  <p>Contrato celebrado entre los señores Nicolas Torres y el Sr. Italo Carrasco;\n    este contrato será celebrado con la finalidad de formalizar la participación como socio dentro\n    de la empresa denominada CompanyName: el Sr. Nicolas Torres en lo\n    sucesivo se denominará el asociante y la contraparte el Sr. Italo Carrasco que en lo\n    sucesito será denominado como el asociado.</p>\n\n  <div id=\"pageFooter-last\">\n    <table style=\"width:100%;\">\n      <td style=\"text-align: center;\">\n        <p>____________________</p>\n        <p>19.016.157-9</p>\n        <p>Nicolas Torres</p>\n      </td>\n      <td style=\"text-align: center;\">\n        <p>____________________</p>\n        <p>18.201.669-1</p>\n        <p>Italo Carrasco</p>\n      </td>\n    </table>\n  </div>\n</body>\n\n</html>",
+                }
+        '500':
+          description: In case of the server has an error, InternalServer Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+              example:
+                code: 500
+                message: Error creating the document.
+                payload: 
+                  error: Various errors.
