@@ -31,14 +31,6 @@ router.post('/documents', async ctx => {
   );
 });
 
-/* Create annex */
-router.post('/documents/annexes', koaBody, async (ctx) => {
-  ctx.body = await documents.createAnnex(
-    ctx.request.body.docTypeID,
-    ctx.request.body.users,
-  );
-});
-
 app
   .use(cors())
   .use(json())

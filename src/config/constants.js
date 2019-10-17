@@ -20,12 +20,14 @@ export default () => {
     HTTP: {
       CODES: {
         OK: 200,
+        INTERNAL_SERVER_ERROR: 500,
       },
     },
     RESPONSES: {
       DOCUMENTS: {
-        STORE: {
-          CREATE: 'Document created successfully.',
+        CREATE: {
+          SUCCESS: 'Document created successfully.',
+          ERROR: 'Error creating the document.',
         },
       },
     },

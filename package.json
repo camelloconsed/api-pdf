@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "docs": "NOT FOUND",
     "dev": "npm run lint && npm run build && node dist/index.js",
     "build": "npm run clean && npm run babel",
     "clean": "rm -rf dist",
     "lint": "eslint src",
     "babel": "babel src -d dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seeDocs": "cross-env npx serve -p ${DOCSPORT:-9000} docs"
   },
   "author": "nico.torres.lopez@gmail.com",
   "license": "MIT",
@@ -24,6 +24,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^6.0.3",
     "dotenv": "^8.1.0",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
