@@ -7,6 +7,8 @@ import Documents from './services/documents';
 import Env from './config/enviroment';
 import Consts from './config/constants';
 
+require('dotenv').config();
+
 const Sentry = require('@sentry/node');
 
 const koaBody = require('koa-body')({ multipart: true });
@@ -19,7 +21,9 @@ const router = new KoaRouter({
   prefix: `/v${env.api.version}`,
 });
 
-Sentry.init({ dsn: env.api.sentry });
+if (process.env.ENVIRONMENT === 'prod') {
+  Sentry.init({ dsn: env.api.sentry });
+}
 
 /* ----------Documents---------- */
 /* Create document */
