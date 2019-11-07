@@ -31,6 +31,12 @@ router.post('/documents', async ctx => {
   );
 });
 
+router.post('/documents/annex', async ctx => {
+  ctx.body = await documents.annex(
+    ctx,
+  );
+});
+
 app
   .use(cors())
   .use(json())
