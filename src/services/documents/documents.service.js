@@ -2,10 +2,12 @@ import pdf from 'html-pdf';
 import fs from 'fs';
 import Consts from '../../config/constants';
 import Response from '../../responses';
+import Log from '../../log';
 
 export default () => {
   const document = {};
   const CONSTS = Consts();
+  const logger = Log();
 
   /* Format HTML Function */
   function formatHTML(html, users, index) {
