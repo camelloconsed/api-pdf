@@ -17,7 +17,7 @@ export default () => {
           apiId: 'api_pdf',
           message: err.message,
           date: new Date(),
-          user: '1-9',
+          user: '',
         },
       );
       return logData;
