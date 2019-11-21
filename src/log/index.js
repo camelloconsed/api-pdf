@@ -8,7 +8,6 @@ export default () => {
   logger.error = async (method, actionType, idMachine, err, user) => {
     try {
       /* LOG API CALL */
-      console.log(user);
       const logData = await axios.post(
         `${env.api.network.log.endpoints.url}/log`, {
           type: 'error',
