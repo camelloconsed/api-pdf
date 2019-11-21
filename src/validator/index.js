@@ -1,8 +1,10 @@
 import Validator from 'fastest-validator';
 import { ValidationError } from '../errors';
+import Const from '../config/constants';
 import Log from '../log';
 
 const logger = Log();
+const CONSTS = Const();
 
 export default async (schema, params, fn) => {
   const validator = new Validator({
@@ -52,7 +54,7 @@ export default async (schema, params, fn) => {
       return fn(params);
     }
   } else {
-    await logger.error('POST', 'Store Document', params.idMachine, { message: 'Validation rut Error' });
+    await logger.error('POST', 'Store Document', params.idMachine, { message: 'Validation rut Error' }, CONSTS.PDF.USER);
     return new ValidationError(validationResult.map(vr => vr.message));
   }
 };

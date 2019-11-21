@@ -1,7 +1,7 @@
 export class ValidationError {
   constructor(message, code) {
     this.code = code;
-    this.message = 'Validation error';
+    this.message = (message || 'validation error');
     this.payload = {
       error: message,
     };
