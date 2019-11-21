@@ -14,6 +14,14 @@ export default () => {
           env: process.env.API_ENV,
           version: process.env.API_VERSION,
           sentry: process.env.SENTRY,
+          network: {
+            log: {
+              endpoints: {
+                url: process.env.PROD_LOG_API_URL,
+                version: process.env.PROD_LOG_API_VERSION,
+              },
+            },
+          },
         },
       };
       break;
@@ -24,6 +32,14 @@ export default () => {
           env: process.env.API_ENV,
           version: process.env.API_VERSION,
           sentry: process.env.SENTRY,
+          network: {
+            log: {
+              endpoints: {
+                url: process.env.DEV_LOG_API_URL,
+                version: process.env.DEV_LOG_API_VERSION,
+              },
+            },
+          },
         },
       };
       break;

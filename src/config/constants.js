@@ -5,6 +5,7 @@ export default () => {
       DEV: 'development',
     },
     PDF: {
+      USER: '',
       TEMPLATE: {
         CHARSET: 'utf8',
         OPTIONS: {

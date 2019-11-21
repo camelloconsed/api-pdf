@@ -1,7 +1,10 @@
-export class ValidationError extends Error {
+export class ValidationError {
   constructor(message, code) {
-    super(message || 'validation error');
     this.code = code;
+    this.message = (message || 'validation error');
+    this.payload = {
+      error: message,
+    };
   }
 }
 export class NotAuthorizedError extends Error {

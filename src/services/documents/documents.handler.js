@@ -10,17 +10,20 @@ export default ({ documentsService }) => {
     {
       docTypeID: ctx.request.body.docTypeID,
       users: ctx.request.body.users,
+      idMachine: ctx.request.ip,
     },
     documentsService.create,
   );
 
   document.annex = (ctx) => validator(
+
     annexSchema,
     {
       docTypeID: ctx.request.body.docTypeID,
       annexTypes: ctx.request.body.annexTypes,
       annexTypeID: ctx.request.body.annexTypeID,
       users: ctx.request.body.users,
+      idMachine: ctx.request.ip,
     },
     documentsService.annex,
   );
