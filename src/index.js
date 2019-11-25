@@ -6,6 +6,7 @@ import cors from '@koa/cors';
 import Documents from './services/documents';
 import Env from './config/enviroment';
 import Consts from './config/constants';
+import Response from './responses';
 
 require('dotenv').config();
 
@@ -30,9 +31,18 @@ if (process.env.ENVIRONMENT === 'prod') {
 router.post('/documents', async ctx => {
   ctx.res.setHeader('Content-Type', 'application/pdf');
   ctx.res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
-  ctx.body = await documents.create(
-    ctx,
-  );
+  try {
+    ctx.body = await documents.create(
+      ctx,
+    );
+  } catch (err) {
+    ctx.status = CONSTS.HTTP.CODES.NOT_FOUND;
+    ctx.body = new Response(
+      CONSTS.RESPONSES.DOCUMENTS.TEMPLATE.NOT_FOUND,
+      CONSTS.HTTP.CODES.NOT_FOUND,
+      err.path,
+    );
+  }
 });
 
 router.post('/documents/annex', async ctx => {
