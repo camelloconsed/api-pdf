@@ -17,6 +17,7 @@ export default () => {
       FirstUserRUT: users[0].RUT,
       SecondUserName: users[1].name,
       SecondUserRUT: users[1].RUT,
+      Money: 10000 * index,
     };
 
     const re = new RegExp(Object.keys(mapPDF).join('|'), 'g');

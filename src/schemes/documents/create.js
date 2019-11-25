@@ -7,9 +7,11 @@ const schema = {
       props: {
         name: 'string',
         RUT: 'rut',
-        idMachine: 'string',
       },
     },
+  },
+  idMachine: {
+    type: 'string',
   },
 };
 
