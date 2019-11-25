@@ -22,6 +22,7 @@ export default () => {
       CODES: {
         OK: 200,
         INTERNAL_SERVER_ERROR: 500,
+        NOT_FOUND: 404,
       },
     },
     RESPONSES: {
@@ -29,6 +30,9 @@ export default () => {
         CREATE: {
           SUCCESS: 'Document created successfully.',
           ERROR: 'Error creating the document.',
+        },
+        TEMPLATE: {
+          NOT_FOUND: 'Template not found.',
         },
       },
     },

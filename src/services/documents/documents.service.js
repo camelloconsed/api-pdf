@@ -45,7 +45,6 @@ export default () => {
         params.users,
         0,
       );
-
       pdf.create(html, options).toBuffer((err, buffer) => {
         if (!err) {
           const response = {
