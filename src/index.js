@@ -58,5 +58,5 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-const server = app.listen('4001');
+const server = app.listen('4000');
 console.log(`Server running on port ${server.address().port} ...`);
