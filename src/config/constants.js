@@ -27,6 +27,10 @@ export default () => {
     },
     RESPONSES: {
       DOCUMENTS: {
+        CONVERT: {
+          SUCCESS: 'Document converted successfully.',
+          ERROR: 'Error converting the document.',
+        },
         CREATE: {
           SUCCESS: 'Document created successfully.',
           ERROR: 'Error creating the document.',

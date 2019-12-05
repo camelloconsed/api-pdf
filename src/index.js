@@ -27,6 +27,13 @@ if (process.env.ENVIRONMENT === 'prod') {
 }
 
 /* ----------Documents---------- */
+
+router.post('/convertPDF', async ctx => {
+  ctx.res.setHeader('Content-Type', 'application/pdf');
+  ctx.res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+  ctx.body = await documents.convertPDF(ctx);
+});
+
 /* Create document */
 router.post('/documents', async ctx => {
   ctx.res.setHeader('Content-Type', 'application/pdf');

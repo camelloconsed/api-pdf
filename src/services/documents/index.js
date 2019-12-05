@@ -8,5 +8,6 @@ export default () => {
   return {
     create: documentsHandler.create,
     annex: documentsHandler.annex,
+    convertPDF: documentsHandler.convertPDF,
   };
 };
