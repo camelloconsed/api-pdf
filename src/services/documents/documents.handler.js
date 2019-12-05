@@ -1,13 +1,13 @@
 import validator from '../../validator';
 import createSchema from '../../schemes/documents/create';
 import annexSchema from '../../schemes/documents/annex';
+import convertPDFSchema from '../../schemes/documents/convertPDF';
 
 export default ({ documentsService }) => {
   const document = {};
 
   document.create = (ctx) => validator(
-    createSchema,
-    {
+    createSchema, {
       docTypeID: ctx.request.body.docTypeID,
       users: ctx.request.body.users,
       idMachine: ctx.request.ip,
@@ -17,8 +17,7 @@ export default ({ documentsService }) => {
 
   document.annex = (ctx) => validator(
 
-    annexSchema,
-    {
+    annexSchema, {
       docTypeID: ctx.request.body.docTypeID,
       annexTypes: ctx.request.body.annexTypes,
       annexTypeID: ctx.request.body.annexTypeID,
@@ -28,5 +27,12 @@ export default ({ documentsService }) => {
     documentsService.annex,
   );
 
+  document.convertPDF = ctx => validator(
+
+    convertPDFSchema, {
+      html: ctx.request.body.html,
+    },
+    documentsService.convertPDF,
+  );
   return document;
 };

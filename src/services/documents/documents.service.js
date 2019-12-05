@@ -29,6 +29,36 @@ export default () => {
     return response;
   }
 
+  /* Convert HTML to PDF */
+  document.convertPDF = (params) => {
+    return new Promise((resolve, reject) => {
+      const options = {
+        border: {
+          directory: './',
+          top: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.TOP,
+          right: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.RIGHT,
+          bottom: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.BOTTOM,
+          left: CONSTS.PDF.TEMPLATE.OPTIONS.BORDER.LEFT,
+        },
+      };
+      pdf.create(params.html, options).toBuffer((err, buffer) => {
+        if (!err) {
+          resolve(new Response(
+            CONSTS.RESPONSES.DOCUMENTS.CONVERT.SUCCESS,
+            CONSTS.HTTP.CODES.OK,
+            buffer,
+          ));
+        } else {
+          reject(new Response(
+            CONSTS.RESPONSES.DOCUMENTS.CONVERT.ERROR,
+            CONSTS.HTTP.CODES.INTERNAL_SERVER_ERROR,
+            err,
+          ));
+        }
+      });
+    });
+  };
+
   /* Create Documents */
   document.create = (params) => {
     return new Promise((resolve, reject) => {
