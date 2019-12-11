@@ -102,27 +102,12 @@ export default () => {
   document.annex = (params) => {
     return new Promise((resolve, reject) => {
       let html = '';
-      let indice = 0;
-      html = html.concat(formatHTML(
-        fs.readFileSync(`src/templates/${params.docTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET),
-        params.users,
-        0,
-      ));
 
-      params.annexTypes.forEach((annex, index) => {
-        html = html.concat(formatHTML(
-          fs.readFileSync(`src/templates/${annex.type}.html`, CONSTS.PDF.TEMPLATE.CHARSET),
-          params.users,
-          index + 1,
-        ));
-        indice = index + 1;
-      });
-
-      html = html.concat(formatHTML(
+      html = formatHTML(
         fs.readFileSync(`src/templates/${params.annexTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET),
         params.users,
-        indice + 1,
-      ));
+        params.annexCount,
+      );
 
       const options = {
         border: {

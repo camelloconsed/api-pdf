@@ -19,7 +19,7 @@ export default ({ documentsService }) => {
 
     annexSchema, {
       docTypeID: ctx.request.body.docTypeID,
-      annexTypes: ctx.request.body.annexTypes,
+      annexCount: ctx.request.body.annexCount,
       annexTypeID: ctx.request.body.annexTypeID,
       users: ctx.request.body.users,
       idMachine: ctx.request.ip,

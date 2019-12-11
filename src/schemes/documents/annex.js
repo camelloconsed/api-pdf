@@ -1,14 +1,6 @@
 const schema = {
   docTypeID: { type: 'uuid' },
-  annexTypes: {
-    type: 'array',
-    items: {
-      type: 'object',
-      props: {
-        type: 'uuid',
-      },
-    },
-  },
+  annexCount: { type: 'string' },
   annexTypeID: { type: 'uuid' },
   users: {
     type: 'array',
