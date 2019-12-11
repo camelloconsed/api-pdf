@@ -10,14 +10,14 @@ export default () => {
   const logger = Log();
 
   /* Format HTML Function */
-  function formatHTML(html, users, index) {
+  function formatHTML(html, users) {
     const mapPDF = {
-      Index: index,
       FirstUserName: users[0].name,
       FirstUserRUT: users[0].RUT,
       SecondUserName: users[1].name,
       SecondUserRUT: users[1].RUT,
-      Money: 10000 * index,
+      Money: 10000,
+      Date: Date.now(),
     };
 
     const re = new RegExp(Object.keys(mapPDF).join('|'), 'g');
@@ -74,7 +74,6 @@ export default () => {
       const html = formatHTML(
         fs.readFileSync(`src/templates/${params.docTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET),
         params.users,
-        0,
       );
       pdf.create(html, options).toBuffer((err, buffer) => {
         if (!err) {
@@ -106,7 +105,6 @@ export default () => {
       html = formatHTML(
         fs.readFileSync(`src/templates/${params.annexTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET),
         params.users,
-        params.annexCount,
       );
 
       const options = {
