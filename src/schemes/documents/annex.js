@@ -1,7 +1,6 @@
 const schema = {
-  docTypeID: { type: 'uuid' },
-  annexCount: { type: 'string' },
   annexTypeID: { type: 'uuid' },
+  money: { type: 'string' },
   users: {
     type: 'array',
     items: {

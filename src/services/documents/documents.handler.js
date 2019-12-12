@@ -18,11 +18,10 @@ export default ({ documentsService }) => {
   document.annex = (ctx) => validator(
 
     annexSchema, {
-      docTypeID: ctx.request.body.docTypeID,
-      annexCount: ctx.request.body.annexCount,
       annexTypeID: ctx.request.body.annexTypeID,
       users: ctx.request.body.users,
       idMachine: ctx.request.ip,
+      money: ctx.request.body.money,
     },
     documentsService.annex,
   );
