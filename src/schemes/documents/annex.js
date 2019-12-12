@@ -1,5 +1,6 @@
 const schema = {
   annexTypeID: { type: 'uuid' },
+  money: { type: 'string' },
   users: {
     type: 'array',
     items: {

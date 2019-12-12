@@ -21,6 +21,7 @@ export default ({ documentsService }) => {
       annexTypeID: ctx.request.body.annexTypeID,
       users: ctx.request.body.users,
       idMachine: ctx.request.ip,
+      money: ctx.request.body.money,
     },
     documentsService.annex,
   );

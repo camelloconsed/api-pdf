@@ -10,13 +10,13 @@ export default () => {
   const logger = Log();
 
   /* Format HTML Function */
-  function formatHTML(html, users) {
+  function formatHTML(html, users, money) {
     const mapPDF = {
       FirstUserName: users[0].name,
       FirstUserRUT: users[0].RUT,
       SecondUserName: users[1].name,
       SecondUserRUT: users[1].RUT,
-      Money: 10000,
+      Money: money,
       Date: Date.now(),
     };
 
@@ -105,6 +105,7 @@ export default () => {
       html = formatHTML(
         fs.readFileSync(`src/templates/${params.annexTypeID}.html`, CONSTS.PDF.TEMPLATE.CHARSET),
         params.users,
+        params.money,
       );
 
       const options = {
