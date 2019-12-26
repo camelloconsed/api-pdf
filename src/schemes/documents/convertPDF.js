@@ -1,5 +1,5 @@
 const schema = {
-    html: { type: 'string' },
-  };
+  html: { type: 'string' },
+};
 
-  export default schema;
+export default schema;
