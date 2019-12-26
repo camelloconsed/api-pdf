@@ -10,10 +10,10 @@ export default () => {
         CHARSET: 'utf8',
         OPTIONS: {
           BORDER: {
-            TOP: '1in',
+            TOP: '0.5in',
             RIGHT: '0.5in',
-            BOTTOM: '1in',
-            LEFT: '1in',
+            BOTTOM: '0,5in',
+            LEFT: '0.5in',
           },
         },
       },
