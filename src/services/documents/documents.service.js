@@ -13,9 +13,9 @@ export default () => {
   function formatHTML(html, users, money) {
     const mapPDF = {
       FirstUserName: users[0].name,
-      FirstUserRUT: users[0].RUT,
+      FirstUserRUT: users[0].rut,
       SecondUserName: users[1].name,
-      SecondUserRUT: users[1].RUT,
+      SecondUserRUT: users[1].rut,
       Money: money,
       Date: Date.now(),
     };

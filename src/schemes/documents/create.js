@@ -6,7 +6,7 @@ const schema = {
       type: 'object',
       props: {
         name: 'string',
-        RUT: 'rut',
+        rut: 'rut',
       },
     },
   },
